@@ -4,43 +4,51 @@ import java.util.Scanner;
 
 public class LineComparisonComputation {
     public static void main(String[] args) {
-        System.out.println("Calculate Length Between Two Point");
 
-        int x1, x2, y1, y2;
-        double l1;
+        int lengthCalculate;
+
+        // Check equality of two length
         Scanner sc = new Scanner(System.in);
-        System.out.println("enter x1=");
-        x1 = sc.nextInt();
-        System.out.println("enter x2 =");
-        x2 = sc.nextInt();
-        System.out.println("enter y1 =");
-        y1 = sc.nextInt();
-        System.out.println("enter y2 =");
-        y2 = sc.nextInt();
-        l1 = Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
-        System.out.println("Length Between" + "(" + x1 + "," + y1 + ")," + "(" + x2 + "," + y2 + ")=" + l1);
+        System.out.println("Calculate length of first line");
+        System.out.print("Enter x1 co-ordinate: ");
+        int x1 = sc.nextInt();
+        System.out.print("Enter x2 co-ordinate: ");
+        int x2 = sc.nextInt();
+        System.out.print("Enter y1 co-ordinate: ");
+        int y1 = sc.nextInt();
+        System.out.print("Enter y2 co-ordinate: ");
+        int y2 = sc.nextInt();
 
-        int p1, p2, q1, q2;
-        double l2;
-        System.out.println("enter p1 =");
-        p1 = sc.nextInt();
-        System.out.println("enter p2 =");
-        p2 = sc.nextInt();
-        System.out.println("enter q1 =");
-        q1 = sc.nextInt();
-        System.out.println("enter q2 =");
-        q2 = sc.nextInt();
-        l2 = Math.sqrt((p2 - p1) * (p2 - p1) + (q2 - q1) * (q2 - q1));
-        System.out.println("Length between" + "(" + p1 + "," + q1 + ")," + "(" + p2 + "," + q2 + ")=" + l2);
+        Double len_of_line1 = Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2));
+        System.out.println("Length of first line is " + len_of_line1);
 
-        double obj1 = (l1);
-        double obj2 = (l2);
-        if (obj1 == obj2) {
-            System.out.println("Both lines are equal");
+        System.out.println("Calculate length of second line");
+        System.out.print("Enter x3 co-ordinate: ");
+        int x3 = sc.nextInt();
+        System.out.print("Enter x4 co-ordinate: ");
+        int x4 = sc.nextInt();
+        System.out.print("Enter y3 co-ordinate: ");
+        int y3 = sc.nextInt();
+        System.out.print("Enter y4 co-ordinate: ");
+        int y4 = sc.nextInt();
+
+        Double len_of_line2 = Math.sqrt(Math.pow((x4 - x3), 2) + Math.pow((y4 - y3), 2));
+        System.out.println("Length of second line is " + len_of_line2);
+
+        if (len_of_line1.equals(len_of_line2))
+            System.out.println("Lines are equal");
+        else
+            System.out.println("Lines are not equal");
+
+        // Check line comparison greater or less
+        int value = len_of_line1.compareTo(len_of_line2);
+        if (value < 0) {
+            System.out.println("Length of first line is less than second line");
+        } else if (value > 0) {
+            System.out.println("Length of first line is greater than second line");
         } else {
-            System.out.println("Both lines are not equal");
+            System.out.println("Both lines are equal");
         }
+
     }
 }
-
-
